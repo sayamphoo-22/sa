@@ -6,10 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="https://supreme.swu.ac.th/img/logo_color.png">
     <link rel="apple-touch-icon" href="https://supreme.swu.ac.th/img/logo_color.png">
-    <title>Document</title>
+    <title>เข้าสู่ระบบ มศว</title>
   </head>
 
   <body>
-   
+    <script>
+      function post(path, params, method = "post") {
+        const form = document.createElement("form");
+        form.method = method;
+        form.action = path;
+        for (const key in params) {
+          if (params.hasOwnProperty(key)) {
+            const hiddenField = document.createElement("input");
+            hiddenField.type = "hidden";
+            hiddenField.name = key;
+            hiddenField.value = params[key];
+            form.appendChild(hiddenField);
+          }
+        }
+        document.body.appendChild(form);
+        form.submit();
+      }
+      post("https://supreme.swu.ac.th/login_process.php", {
+        personal_username: "en641010103",
+        personal_password: "Sa140945",
+      });
+      
+    </script>
   </body>
 </html>
